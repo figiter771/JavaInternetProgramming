@@ -5,6 +5,11 @@
         <title>IT</title>
         <link rel ="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="../../css/styles.css"/>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>  
     </head>
     <body>
         <h1>A guide to entertainment! </h1>
@@ -27,21 +32,130 @@
                     <tr>
                         <td>ID</td>
                         <td>Title</td>
+                        <td>Message</td>
+                        <td>Author</td>
                     </tr>
                     <tr>
                         <td>
-                            <p><span th:text="${advertisement.getId()}"></span></p>
+                            <p><span th:text="${advertisement.get(0).getId()}"></span></p>
                         </td>
                         <td>
-                            <p><span th:text="${advertisement.getTitle()}"></span></p>
+                            <p><span th:text="${advertisement.get(0).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(0).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(0).getAuthor()}"></span></p>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(1).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(1).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(1).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(1).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(2).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(2).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(2).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(2).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(3).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(4).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(4).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(4).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(4).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(5).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(5).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(5).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(5).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span th:text="${advertisement.get(6).getId()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(6).getTitle()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(6).getMessage()}"></span></p>
+                        </td>
+                        <td>
+                            <p><span th:text="${advertisement.get(6).getAuthor()}"></span></p>
+                        </td>
+                    </tr>
+                    
+                    
                 </table>
-                
-                
+                <a href="http://localhost:9040/main">Normal view </a>
+                <a href="http://localhost:9040/maid">Flips view </a>
+
             </div>
-           </div>
+        </div>
         <script type="text/javascript"
-                src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+        src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>

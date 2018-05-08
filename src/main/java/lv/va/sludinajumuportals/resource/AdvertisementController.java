@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 
-public class AdvertisementController { 
-      @Autowired
-      private AdvertisementService advertisementService;
+public class AdvertisementController {
+
+    @Autowired
+    private AdvertisementService advertisementService;
+
     @GetMapping(value = "/") // The address /
     @ResponseBody
     public String testEndpoint() {
@@ -25,12 +27,19 @@ public class AdvertisementController {
     public Response nextTestEndpoint() {
         return new Response("Helo dankness my oll fren!");
     }
+
     @RequestMapping("/main")
-    public String getUI(Map<String,Object> model) {
-        model.put("message","Hi");
-        model.put("advertisement",advertisementService.getAdvertismnet());
-        return "/main";
+    public String getUI(Map<String, Object> model) {
+        model.put("message", "Hi");
+        model.put("advertisement", advertisementService.getFullAdvertismentList(false));
+        return "main";
     }
 
+    @RequestMapping("/maid")
+    public String getUI2(Map<String, Object> model) {
+        model.put("message", "Hi");
+        model.put("advertisement", advertisementService.getFullAdvertismentList(true));
+        return "main";
+    }
 
 }
