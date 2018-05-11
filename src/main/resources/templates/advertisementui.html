@@ -25,18 +25,13 @@
 <div class="container">
     <div class="starter-template">
         <h1>Sludinajumu portals</h1>
-        <p><span th:text="'Message: '+ ${message}"></span></p>
         <table>
-            <tr>
-                <td>ID</td>
-                <td>Title</td>
-            </tr>
-            <tr><td>
-                <p><span th:text="${advertisement.getId()}"></span></p>
-            </td>
-            <td>
-                <p><span th:text="${advertisement.getTitle()}"></span></p>
-            </td></tr>
+            <th:block th:each="advertisement: ${advertisementList}">
+                <td th:text="${advertisement.getId()}">...</td>
+                <td th:text="${advertisement.getTitle()}">...</td>
+                <td th:text="${advertisement.getMessage()}">...</td>
+                <td th:text="${advertisement.getAuthor()}">...</td>
+            </th:block>
         </table>
 
     </div>

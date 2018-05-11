@@ -8,13 +8,18 @@ public class SludinajumuportalsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SludinajumuportalsApplication.class, args);
-        System.out.println("Heyyy it acctualy works! Thats pritty gud!");
+        System.out.println("Hello!");
     }
 
 }
 /*.git mape jaiznem 
+
 ja izmanto gitingore
+
 git add src/main....
+
 git commit -m "ko izmaina veic"
+
 git push
+
 */

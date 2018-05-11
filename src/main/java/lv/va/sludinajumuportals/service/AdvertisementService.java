@@ -1,46 +1,63 @@
 package lv.va.sludinajumuportals.service;
 
-import java.util.ArrayList;
 import lv.va.sludinajumuportals.domain.Advertisement;
 import org.springframework.stereotype.Service;
 
-@Service // Dependency injection japalasa ....
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+@Service
 public class AdvertisementService {
-
-    public Advertisement getAdvertismnet() {
-        Advertisement advertisement = new Advertisement(1, "MyTitle", "My Message", "MyAuthor"); //ieliec ieksa velak
+//tika mainits
+    String name = "Olgerts";
+    public List<Advertisement> hardcodedAdvertisementList;
+    public List<Advertisement> reverseAdvertisementList;
+    
+    public AdvertisementService () {
+        hardcodedAdvertisementList = hardcodedAdvertisementInitialization();
+        reverseAdvertisementList = hardcodedAdvertisementList;
+        Collections.reverse(reverseAdvertisementList);
+    }
+    public Advertisement getAdvertisement() {
+        Advertisement advertisement = new Advertisement(1L, "Pardod māju", "Pārdod lielu māju", "Jānis");
         return advertisement;
     }
-
-    public ArrayList<Advertisement> getAdvertismentList() {
-        ArrayList<Advertisement> advertisements = new ArrayList<>();
-        Advertisement advertisement = new Advertisement(1, "MyTitle", "My Message", "MyAuthor");
-        advertisements.add(advertisement);
-        return advertisements;
-
+    public List<Advertisement> getAdvertisementListByAuthor(String author){
+        List<Advertisement>filteredByName = new ArrayList<>();
+        for (Advertisement advertisement:hardcodedAdvertisementList){
+            if (advertisement.getAuthor().equals(author)) {
+                filteredByName.add(advertisement);
+        }
+    }
+        return filteredByName;
+    }
+    public List<Advertisement> getAdvertisementListReverse() {
+        return reverseAdvertisementList;
     }
 
-    public ArrayList<Advertisement> getFullAdvertismentList(boolean flip) {
+    public ArrayList<Advertisement> getAdvertisementList() {
         ArrayList<Advertisement> advertisements = new ArrayList<>();
-        if (flip == true) {
-            advertisements.add(new Advertisement(7, "Nokia", "Ko saka anglis kad vinam nav kias?", "Jokotajs"));
-            advertisements.add(new Advertisement(6, "Palidzi", "Es nezinu ka atvert internetu, man vajag palidzibu", "Tavs vectevs"));
-            advertisements.add(new Advertisement(5, "Seksy", "Uzpied uz si linka ja gribi labu laiku http://lolz.com", "Jana"));
-            advertisements.add(new Advertisement(4, "Picas", "Es edu tikai picas ar ananasiem", "Hipsters"));
-            advertisements.add(new Advertisement(3, "Normals", "Es esmu normals un gribu normalas lietas", "Normijs"));
-            advertisements.add(new Advertisement(2, "Ediens", "Man loti gribas est!", "Bomzis"));
-            advertisements.add(new Advertisement(1, "Zekes", "Pardodu zekes", "Zeku Puika"));
-        } else {
-            advertisements.add(new Advertisement(1, "Zekes", "Pardodu zekes", "Zeku Puika"));
-            advertisements.add(new Advertisement(2, "Ediens", "Man loti gribas est!", "Bomzis"));
-            advertisements.add(new Advertisement(3, "Normals", "Es esmu normals un gribu normalas lietas", "Normijs"));
-            advertisements.add(new Advertisement(4, "Picas", "Es edu tikai picas ar ananasiem", "Hipsters"));
-            advertisements.add(new Advertisement(5, "Seksy", "Uzpied uz si linka ja gribi labu laiku http://lolz.com", "Jana"));
-            advertisements.add(new Advertisement(6, "Palidzi", "Es nezinu ka atvert internetu, man vajag palidzibu", "Tavs vectevs"));
-            advertisements.add(new Advertisement(7, "Nokia", "Ko saka anglis kad vinam nav kias?", "Jokotajs"));
+        Advertisement advertisement = new Advertisement(1L, "Pardod māju", "Pārdod lielu māju", "Jānis");
+
+        advertisements.add(advertisement);
+
+        return advertisements;
+    }
+
+    private List<Advertisement> hardcodedAdvertisementInitialization() {
+        List<Advertisement> advertisements = new ArrayList<>();
+        for (int i = 1; i < name.length(); i++) {
+            advertisements.add(new Advertisement(Long.valueOf(i), "Pardodu Lietu", "Selling my thing online nr " + i, getAuthorName(i)));
         }
         return advertisements;
-
     }
+
+    private String getAuthorName(int i) {
+        if (i % 2 == 0) {
+            return "Janis";
+        }
+        return "Peteris";
+    }
+    
 }
