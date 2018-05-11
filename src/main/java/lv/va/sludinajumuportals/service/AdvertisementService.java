@@ -13,7 +13,6 @@ public class AdvertisementService {
     String name = "Olgerts";
     public List<Advertisement> hardcodedAdvertisementList;
     public List<Advertisement> reverseAdvertisementList;
-    
     public AdvertisementService () {
         hardcodedAdvertisementList = hardcodedAdvertisementInitialization();
         reverseAdvertisementList = hardcodedAdvertisementList;
